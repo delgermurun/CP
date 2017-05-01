@@ -1,5 +1,5 @@
-#include "iostream"
-#include "algorithm"
+#include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -10,9 +10,10 @@ int main()
 	#endif
 
 	string line, w, W;
-	string words[1000], words2[1000];
+	string words[1000], words2[1000], words3[1000];
 	char t;
-	int n = 0;
+	int n = 0, c = 0;
+	bool f;
 
 	while(getline(cin, line), line[0] != '#') {
 		w = ""; W = "";
@@ -30,18 +31,7 @@ int main()
 			}
 
 			if (w.length() > 0) {
-				for (int j = 0; j < W.length() - 1; ++j)
-				{
-					for (int l = j + 1; l < W.length(); ++l)
-					{
-						//cout<<W[j]<<" "<<W[l]<<" "<<(W[j]>W[l])<<endl;
-						if (W[j] > W[l]) {
-							t = W[j];
-							W[j] = W[l];
-							W[l] = t;
-						}
-					}
-				}
+				sort(W.begin(), W.end());
 
 				words[n] = w;
 				words2[n] = W;
@@ -52,18 +42,7 @@ int main()
 		}
 
 		if (w.length() > 0) {
-			for (int j = 0; j < W.length() - 1; ++j)
-			{
-				for (int l = j + 1; l < W.length(); ++l)
-				{
-					//cout<<W[j]<<" "<<W[l]<<" "<<(W[j]>W[l])<<endl;
-					if (W[j] > W[l]) {
-						t = W[j];
-						W[j] = W[l];
-						W[l] = t;
-					}
-				}
-			}
+			sort(W.begin(), W.end());
 
 			words[n] = w;
 			words2[n] = W;
@@ -73,10 +52,38 @@ int main()
 		}
 	}
 
-	cout<<n<<endl;
 	for (int i = 0; i < n; ++i)
 	{
-		cout<<words2[i]<<endl;
+		f = false;
+		for (int j = 0; j < n; ++j)
+		{
+			if (j != i && words2[i].compare(words2[j]) == 0) {
+				f = true;
+				break;
+			}
+		}
+
+		if (!f) {
+			words3[c] = words[i];
+			c++;
+		}
+	}
+
+	for (int i = 0; i < c - 1; ++i)
+	{
+		for (int j = i + 1; j < c; ++j)
+		{
+			if (words3[i] > words3[j]) {
+				line = words3[i];
+				words3[i] = words3[j];
+				words3[j] = line;
+			}
+		}
+	}
+
+	for (int i = 0; i < c; ++i)
+	{
+		cout<<words3[i]<<endl;
 	}
 
 	return 0;
