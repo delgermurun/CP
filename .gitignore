@@ -1,4 +1,5 @@
 *.out
 .DS_Store
 input.txt
+t.txt
 output.txt
