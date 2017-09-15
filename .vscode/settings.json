@@ -1,6 +1,7 @@
 {
   "python.pythonPath": "/home/delgermurun/.virtualenvs/deep-learning/bin/python",
   "files.associations": {
-    "iosfwd": "cpp"
+    "iosfwd": "cpp",
+    "iostream": "cpp"
   }
 }
