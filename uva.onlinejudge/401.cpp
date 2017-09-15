@@ -7,10 +7,10 @@ using namespace std;
 
 int main()
 {
-	#ifndef ONLINE_JUDGE
+#ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
-	#endif
+#endif
 
 	string line;
 	bool isP, isR;
@@ -43,33 +43,44 @@ int main()
 	r['5'] = 'Z';
 	r['8'] = '8';
 
-	while (getline(cin, line)) {
+	while (getline(cin, line))
+	{
 		isP = isR = true;
 
 		for (int i = 0; i < line.length() / 2 + line.length() % 2; ++i)
 		{
-			if (line[i] != line[line.length()-i-1]) {
+			if (line[i] != line[line.length() - i - 1])
+			{
 				isP = false;
 			}
 
 			//cout<<i<<" "<<line.length()-i-1<<endl;
 			//cout<<line[i]<<" "<<r[line[i]]<<" "<<line[line.length()-i-1]<<endl;
-			if (r[line[i]] != line[line.length()-i-1]) {
+			if (r[line[i]] != line[line.length() - i - 1])
+			{
 				isR = false;
 			}
 
-			if (!isR && !isP) {
+			if (!isR && !isP)
+			{
 				break;
 			}
 		}
 
-		if (!isR && !isP) {
+		if (!isR && !isP)
+		{
 			printf("%s -- is not a palindrome.\n\n", line.c_str());
-		} else if (isR && isP) {
+		}
+		else if (isR && isP)
+		{
 			printf("%s -- is a mirrored palindrome.\n\n", line.c_str());
-		} else if (isP) {
+		}
+		else if (isP)
+		{
 			printf("%s -- is a regular palindrome.\n\n", line.c_str());
-		} else if (isR) {
+		}
+		else if (isR)
+		{
 			printf("%s -- is a mirrored string.\n\n", line.c_str());
 		}
 	}

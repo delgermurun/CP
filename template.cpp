@@ -14,12 +14,11 @@ typedef long long ll;
 
 int main()
 {
-  #ifndef ONLINE_JUDGE
-  freopen("input.txt", "r", stdin);
-  // freopen("output.txt", "w", stdout);
-  #endif
-
   ios::sync_with_stdio(0), cin.tie(0);
+#ifndef ONLINE_JUDGE
+  freopen("input.txt", "r", stdin);
+// freopen("output.txt", "w", stdout);
+#endif
 
   // printf("%.9f\n", x);
   // solution comes here
