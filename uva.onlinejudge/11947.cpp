@@ -40,7 +40,6 @@ int main()
     {
       day_of_month = is_leap_year(y) ? LEAP_DAYS_OF_MONTH[m - 1] : DAYS_OF_MONTH[m - 1];
       d += 14;
-      // cout << d << "\n";
 
       if (d > day_of_month)
       {
@@ -55,7 +54,6 @@ int main()
       }
     }
 
-    // cout << i << " " << m << "/" << d << "/" << y;
     int t = m * 100 + d;
 
     if (t >= 121 && t <= 219)
